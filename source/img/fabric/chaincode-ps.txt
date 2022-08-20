@@ -1,0 +1,19 @@
+
+@startuml
+skinparam handwritten true
+actor SDK
+participant "Peer" as C
+participant "Docker" as S
+
+SDK -> C: 请求调用合约
+C -> C: 普通/系统合约
+C -> C: 普通合约，制作镜像文件，启动合约容器
+C -> S: 转发Invoke调用请求
+S -> S: 执行合约代码
+loop
+    S -> C: 请求执行GetState/PutState等调用
+    C -> S: Peer回应Docker容器的请求
+end    
+S -> C: 返回合约执行结果
+C -> SDK: 返回最终结果
+@enduml

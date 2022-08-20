@@ -1,0 +1,11 @@
+@startuml
+skinparam handwritten true
+
+participant "Peer" as P
+
+P -> P: 判断是哪种语言类型
+P -> P: 准备Dockerfile文件
+P -> P: 使用ccenv容器编译链码，\n并导出为binpackage.tar
+P -> P: 根据Dockerfile文件生成链码的镜像文件
+
+@enduml

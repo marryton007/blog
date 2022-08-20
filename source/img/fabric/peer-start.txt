@@ -1,0 +1,9 @@
+@startuml
+:serve;
+:start peer server\n启动rpc服务;
+:start Event hub server\n启动事件服务;
+:start Chaincode Support Server\n启动链码服务;
+:start Admin server\n启动管理服务;
+:start Endorser Server\n启动背书服务;
+:start Gossip Service\n启动网络服务;
+@enduml

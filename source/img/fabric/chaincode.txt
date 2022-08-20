@@ -1,0 +1,11 @@
+@startuml
+:registerChaincodeSupport()\n启动Chaincode服务，等待监听;
+:(cs *ChaincodeSupport) Register()\n被调用;
+:(cs *ChaincodeSupport) HandleChaincodeStream()\n创建handle,处理请求;
+:(h *Handler) ProcessStream()\n接收请求并处理;
+:(h *Handler) handleMessage()\n根据状态处理请求;
+:(h *Handler) handleMessageCreatedState()\n一开始处理Created状态，只能处理Register请求;
+:(h *Handler) HandleRegister()\n响应Register请求，状态变为Established;
+:(h *Handler) notifyRegistry()\n状态变为Ready;
+:(h *Handler) handleMessageReadyState()\n进入Ready状态，可以响应其他请求了;
+@enduml
